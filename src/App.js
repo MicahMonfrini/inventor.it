@@ -43,6 +43,7 @@ function App() {
         </div>
         <div className="container">
           <Counter />
+          <Counter />
           <br />
           <SpecialText />
           <br />
@@ -52,8 +53,8 @@ function App() {
           <br />
           <VideoPlayer />
           <br />
-          
-          
+
+
         </div>
         <div className="container">
           <Users />
