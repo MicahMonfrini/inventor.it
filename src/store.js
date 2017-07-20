@@ -1,7 +1,15 @@
-import {createStore} from 'redux';
-import state from "./state";
-import reducers from "./reducers";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunkMiddleware from "redux-thunk";
+import { reducers } from "./reducers";
 
-var store = createStore(reducers,state);
+const initialState = {
+  books: []
+};
 
-export default store;
+export const initStore = () => {
+  return createStore(
+    reducers,
+    initialState,
+    composeWithDevTools(applyMiddleware(thunkMiddleware)));
+};

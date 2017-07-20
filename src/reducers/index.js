@@ -1,28 +1,25 @@
+import {combineReducers} from "redux";
+import {BOOKS_LOADED, GET_BOOK_DONE} from "../actions";
 
-function currentCount(state=0, action){
-  if(action.type === "INCREASE_COUNTER"){
-    
+function books(state = [], action) {
+  switch (action.type) {
+    case BOOKS_LOADED:
+      return action.value;
+    default:
+      return state;
   }
-  if(action.type === "DECREASE_COUNTER"){
-    
-  }
-  return state;
-}   
-
-function users(state =[], action){
-  if(action.type === "ADD_USER"){
-
-  }
-  if(action.type === "REMOVE_USER"){
-    
-  }
-  return state;
 }
 
-
-function specialText(state = "", action){
-  if(action.type === "SET_SPECIAL_TEXT"){
-    return action.value;
+function book(state = {}, action) {
+  switch (action.type) {
+    case GET_BOOK_DONE:
+      return action.value;
+    default:
+      return state;
   }
-  return state;
 }
+
+export const reducers = combineReducers({
+  books,
+  book
+});
