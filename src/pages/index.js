@@ -5,12 +5,11 @@ function IndexPage() {
   return (
     <div>
       <h1>
-        Hello World
+        Welcome to Inventor.it
       </h1>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-      <br />
+      <h3>
+        Which Inventory Would You Like to View?
+      </h3>
       <Link href="/books">
         <a>Books</a>
       </Link>
