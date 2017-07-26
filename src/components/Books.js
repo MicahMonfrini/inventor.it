@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import Header from "./Header";
 
-const selectRowProp = {
-  mode: "checkbox"
-};
-
 class Books extends Component {
   constructor(props) {
     super(props);
+  }
+
+  onDeleteRow() {
+    console.log("Row deleted");
   }
 
   render() {
@@ -37,10 +37,22 @@ class Books extends Component {
     //     </ul>
     //   );
     // });
+    const options = {
+      onDeleteRow: this.onDeleteRow
+    };
+    const selectRowProp = {
+      mode: "checkbox"
+    };
     return (
       <div>
         <Header />
-        <BootstrapTable data={this.props.books} search={ true } multiColumnSearch={ true }>
+        <BootstrapTable
+          data={this.props.books}
+          search={ true } multiColumnSearch={ true }
+          deleteRow={ true }
+          selectRow={ selectRowProp }
+          options={ options }
+        >
           <TableHeaderColumn dataField="title" isKey>Title</TableHeaderColumn>
           <TableHeaderColumn dataField="author">Author</TableHeaderColumn>
           <TableHeaderColumn dataField="category">Category</TableHeaderColumn>
