@@ -2,6 +2,11 @@ import React, {Component} from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
+import Header from "./Header";
+
+const selectRowProp = {
+  mode: "checkbox"
+};
 
 class Books extends Component {
   constructor(props) {
@@ -34,9 +39,11 @@ class Books extends Component {
     // });
     return (
       <div>
-        <BootstrapTable data={this.props.books}>
+        <Header />
+        <BootstrapTable data={this.props.books} search={ true } multiColumnSearch={ true }>
           <TableHeaderColumn dataField="title" isKey>Title</TableHeaderColumn>
           <TableHeaderColumn dataField="author">Author</TableHeaderColumn>
+          <TableHeaderColumn dataField="category">Category</TableHeaderColumn>
         </BootstrapTable>
         <Link href="/submit">
           <a>Add New Book</a>
